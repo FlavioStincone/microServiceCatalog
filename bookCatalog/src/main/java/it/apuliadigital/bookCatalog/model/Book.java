@@ -1,0 +1,174 @@
+package it.apuliadigital.bookCatalog.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
+public class Book {
+    
+    @Id
+    @GeneratedValue
+    private int isbn;
+
+    private String title;
+    private String genre;
+    private int pubblicationYear;
+    private String author;
+    private double price;
+    private int quantity = 0;
+    private boolean disponibility;
+
+    //Costruttore di default
+    public Book(){
+
+    }
+
+    //Costruttore con tutti i parametri
+    public Book(int isbn, String title, String genre, int pubblicationYear, String author, double price, int quantity) {
+        this.isbn = isbn;
+        this.title = title;
+        this.genre = genre;
+        this.pubblicationYear = pubblicationYear;
+        this.author = author;
+        this.price = price;
+        this.quantity = quantity;
+        this.disponibility = quantity > 0 ? true : false;
+    }
+
+    //getters/setters
+    //isbn
+    public int getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(int isbn) {
+        this.isbn = isbn;
+    }
+
+    //title
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    //genre
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    //pubblicationYear
+    public int getPubblicationYear() {
+        return pubblicationYear;
+    }
+
+    public void setPubblicationYear(int pubblicationYear) {
+        this.pubblicationYear = pubblicationYear;
+    }
+
+    //author
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    //price
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    //quantity
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    //disponibility
+    public boolean isDisponibility() {
+        return disponibility;
+    }
+
+    public void setDisponibility(boolean disponibility) {
+        this.disponibility = disponibility;
+    }
+
+    //Methods
+    @Override
+    public String toString() {
+        return "Book [isbn=" + isbn + ", title=" + title + ", genre=" + genre + ", pubblicationYear=" + pubblicationYear
+                + ", author=" + author + ", price=" + price + ", quantity=" + quantity + ", disponibility="
+                + disponibility + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + isbn;
+        result = prime * result + ((title == null) ? 0 : title.hashCode());
+        result = prime * result + ((genre == null) ? 0 : genre.hashCode());
+        result = prime * result + pubblicationYear;
+        result = prime * result + ((author == null) ? 0 : author.hashCode());
+        long temp;
+        temp = Double.doubleToLongBits(price);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + quantity;
+        result = prime * result + (disponibility ? 1231 : 1237);
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Book other = (Book) obj;
+        if (isbn != other.isbn)
+            return false;
+        if (title == null) {
+            if (other.title != null)
+                return false;
+        } else if (!title.equals(other.title))
+            return false;
+        if (genre == null) {
+            if (other.genre != null)
+                return false;
+        } else if (!genre.equals(other.genre))
+            return false;
+        if (pubblicationYear != other.pubblicationYear)
+            return false;
+        if (author == null) {
+            if (other.author != null)
+                return false;
+        } else if (!author.equals(other.author))
+            return false;
+        if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+            return false;
+        if (quantity != other.quantity)
+            return false;
+        if (disponibility != other.disponibility)
+            return false;
+        return true;
+    }
+ 
+}
