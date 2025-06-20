@@ -17,23 +17,8 @@ public class Book {
     private String author;
     private double price;
     private int quantity = 0;
-    private boolean disponibility;
 
-    //Costruttore di default
-    public Book(){
-
-    }
-
-    //Costruttore con tutti i parametri
-    public Book(int isbn, String title, String genre, int pubblicationYear, String author, double price, int quantity) {
-        this.isbn = isbn;
-        this.title = title;
-        this.genre = genre;
-        this.pubblicationYear = pubblicationYear;
-        this.author = author;
-        this.price = price;
-        this.quantity = quantity;
-        this.disponibility = quantity > 0 ? true : false;
+    public Book() {
     }
 
     //getters/setters
@@ -100,21 +85,12 @@ public class Book {
         this.quantity = quantity;
     }
 
-    //disponibility
-    public boolean isDisponibility() {
-        return disponibility;
-    }
-
-    public void setDisponibility(boolean disponibility) {
-        this.disponibility = disponibility;
-    }
-
     //Methods
     @Override
     public String toString() {
         return "Book [isbn=" + isbn + ", title=" + title + ", genre=" + genre + ", pubblicationYear=" + pubblicationYear
                 + ", author=" + author + ", price=" + price + ", quantity=" + quantity + ", disponibility="
-                + disponibility + "]";
+                 + "]";
     }
 
     @Override
@@ -130,7 +106,6 @@ public class Book {
         temp = Double.doubleToLongBits(price);
         result = prime * result + (int) (temp ^ (temp >>> 32));
         result = prime * result + quantity;
-        result = prime * result + (disponibility ? 1231 : 1237);
         return result;
     }
 
@@ -165,8 +140,6 @@ public class Book {
         if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
             return false;
         if (quantity != other.quantity)
-            return false;
-        if (disponibility != other.disponibility)
             return false;
         return true;
     }

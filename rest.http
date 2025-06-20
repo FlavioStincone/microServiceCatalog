@@ -1,0 +1,38 @@
+GET http://127.0.0.1:8080/catalog
+
+###
+
+POST http://127.0.0.1:8080/catalog
+Content-Type: application/json
+
+{
+  "title": "Le 7 meraviglie del mondo",
+  "genre": "HORROR",
+  "publicationYear": 2025,
+  "author": "Saverio Bracciale",
+  "price": 19.90,
+  "quantity": 5
+}
+
+###
+
+POST http://127.0.0.1:8080/catalog
+Content-Type: application/json
+
+{
+  "title": "La signora in giallo",
+  "genre": "Giallo",
+  "publicationYear": 1998,
+  "author": "Agata Crispy MC BACON",
+  "price": 39.90,
+  "quantity": 5000
+}
+
+###
+GET http://127.0.0.1:8080/catalog/title/la signora in giallo
+
+
+###
+
+
+
