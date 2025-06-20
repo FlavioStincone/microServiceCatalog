@@ -57,4 +57,13 @@ public class CatalogController {
 
     }
 
+    // @PostMapping("path")
+    // public Book changeQuantity(@RequestBody String quantityToChange, int isbn) {
+        
+    //     return service.increaseQuantity(quantityToChange, isbn);
+    // }
+
+    // fare un unico metodo per increase e decrease
+    
+
 }

@@ -29,7 +29,7 @@ public class CatalogService implements ICatalog {
     @Override
     public  List<Book> findByTitle(String title)
     {
-        return repository.findByTitle(title);
+        return repository.findByTitleContainingIgnoreCase(title);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class CatalogService implements ICatalog {
 
         if(quantity < quantityToChange || quantityToChange < 0)
         {
-           return  null;
+        return  null;
         }
 
         book.setQuantity(quantity - quantityToChange);

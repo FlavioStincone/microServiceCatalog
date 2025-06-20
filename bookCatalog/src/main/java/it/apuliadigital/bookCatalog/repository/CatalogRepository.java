@@ -8,7 +8,7 @@ import it.apuliadigital.bookCatalog.model.Book;
 
 public interface CatalogRepository extends CrudRepository<Book, Integer> {
     
-    public  List<Book> findByTitle(String title);
+    public  List<Book> findByTitleContainingIgnoreCase(String title);
 
     public List<Book> findByAuthor(String author);
 
