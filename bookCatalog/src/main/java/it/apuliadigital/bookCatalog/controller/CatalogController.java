@@ -33,6 +33,7 @@ public class CatalogController {
     }
 
     // GET /Catalogo
+    @Operation(summary="Aggiunta di un libro")
     @GetMapping("/catalog")
     public ResponseEntity<List<Book>> bookCatalog() {
 
