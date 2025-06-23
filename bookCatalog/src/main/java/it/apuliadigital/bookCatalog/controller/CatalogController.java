@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import it.apuliadigital.bookCatalog.model.Book;
 import it.apuliadigital.bookCatalog.service.CatalogService;
 
@@ -19,7 +22,11 @@ public class CatalogController {
     @Autowired
     private CatalogService service;
 
-    // POST /catalog
+    @Operation(summary = "Aggiunta di un libro", description = "Aggiunta di un libro in formato JSON")
+    @ApiResponses({ @ApiResponse(responseCode = "200", description = "Aggiunta di un libro con successo"),
+            @ApiResponse(responseCode = "400", description = "Richiesta non valida")
+    })
+
     @PostMapping("/catalog")
     public ResponseEntity<Book> catalog(@RequestBody Book book) {
 
@@ -32,13 +39,22 @@ public class CatalogController {
         return ResponseEntity.ok(book);
     }
 
+    @Operation(summary = "Visualizza catalogo libri", description = "Visualizza l'intero catalogo dei libri")
+    @ApiResponses({ @ApiResponse(responseCode = "200", description = "Catalogo visualizzato con successo!"),
+            @ApiResponse(responseCode = "400", description = "Richiesta non valida")
+    })
+
     // GET /Catalogo
-    @Operation(summary="Aggiunta di un libro")
     @GetMapping("/catalog")
     public ResponseEntity<List<Book>> bookCatalog() {
 
         return ResponseEntity.ok(service.bookCatalog());
     }
+
+    @Operation(summary = "Filtro ricerca per titolo", description = "Ricerca di un libro filtrando per il titolo")
+    @ApiResponses({ @ApiResponse(responseCode = "200", description = "Libro trovato!"),
+            @ApiResponse(responseCode = "400", description = "Richiesta non valida")
+    })
 
     @GetMapping("/catalog/title/{title}")
     public ResponseEntity<List<Book>> searchByTitle(@PathVariable String title) {
@@ -46,11 +62,21 @@ public class CatalogController {
 
     }
 
+    @Operation(summary = "Filtro ricerca per genere", description = "Ricerca di un libro filtrando per il genere")
+    @ApiResponses({ @ApiResponse(responseCode = "200", description = "Libro trovato!"),
+            @ApiResponse(responseCode = "400", description = "Richiesta non valida")
+    })
+
     @GetMapping("/catalog/genre/{genre}")
     public ResponseEntity<List<Book>> searchByGenre(@PathVariable String genre) {
         return ResponseEntity.ok(service.findByGenre(genre));
 
     }
+
+    @Operation(summary = "Filtro ricerca per autore", description = "Ricerca di un libro filtrando per autore")
+    @ApiResponses({ @ApiResponse(responseCode = "200", description = "Libro trovato!"),
+            @ApiResponse(responseCode = "400", description = "Richiesta non valida")
+    })
 
     @GetMapping("/catalog/author/{author}")
     public ResponseEntity<List<Book>> searchByAuthor(@PathVariable String author) {
@@ -58,13 +84,14 @@ public class CatalogController {
 
     }
 
+    
+
     // @PostMapping("path")
     // public Book changeQuantity(@RequestBody String quantityToChange, int isbn) {
-        
-    //     return service.increaseQuantity(quantityToChange, isbn);
+
+    // return service.increaseQuantity(quantityToChange, isbn);
     // }
 
     // fare un unico metodo per increase e decrease
-    
 
 }
