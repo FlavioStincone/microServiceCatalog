@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BookCatalogApplication<bookCatolog>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "it.apuliadigital.bookCatalog.BookCatalogApplication",
+            "projectName": "bookCatolog",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

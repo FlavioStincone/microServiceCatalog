@@ -17,8 +17,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import it.apuliadigital.bookCatalog.model.Book;
 import it.apuliadigital.bookCatalog.service.CatalogService;
 
-@Validated
+
 @RestController
+
 public class CatalogController {
 
     @Autowired
@@ -30,7 +31,7 @@ public class CatalogController {
     })
 
     @PostMapping("/catalog")
-    public ResponseEntity<Book> catalog(@RequestBody Book book) {
+    public ResponseEntity<Book> catalog(@Validated @RequestBody Book book) {
 
         if (book == null) {
             return ResponseEntity.noContent().build();

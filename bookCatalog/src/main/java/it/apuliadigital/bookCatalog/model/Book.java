@@ -10,19 +10,16 @@ public class Book {
 
     @Id
     @GeneratedValue
-    @NotBlank(message = "cannot be null or empty")
+    
     private int isbn;
-    @NotBlank(message = "cannot be null or empty")
+    @NotBlank(message="non mettere null o vuoto")
     private String title;
-    @NotBlank(message = "cannot be null or empty")
     private String genre;
-    @NotBlank(message = "cannot be null or empty")
     private int pubblicationYear;
-    @NotBlank(message = "cannot be null or empty")
     private String author;
-    @NotBlank(message = "cannot be null or empty")
+    
     private double price;
-    @NotBlank(message = "cannot be null or empty")
+    
     private int quantity = 0;
 
     public Book() {
@@ -143,10 +140,6 @@ public class Book {
             if (other.author != null)
                 return false;
         } else if (!author.equals(other.author))
-            return false;
-        if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
-            return false;
-        if (quantity != other.quantity)
             return false;
         return true;
     }

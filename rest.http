@@ -8,7 +8,7 @@ Content-Type: application/json
 {
   "title": "Le 7 meraviglie del mondo",
   "genre": "HORROR",
-  "publicationYear": 2025,
+  "pubblicationYear": 1990,
   "author": "Saverio Bracciale",
   "price": 19.90,
   "quantity": 5
@@ -22,14 +22,28 @@ Content-Type: application/json
 {
   "title": "La signora in giallo",
   "genre": "Giallo",
-  "publicationYear": 1998,
+  "pubblicationYear": 1,
   "author": "Agata Crispy MC BACON",
   "price": 39.90,
   "quantity": 5000
 }
+###
+
+POST http://127.0.0.1:8080/catalog
+Content-Type: application/json
+
+{
+  "title": "Il ritorno del Re",
+  "genre": "Thriller",
+  "pubblicationYear": 1990,
+  "author": "Re Saverio",
+  "price": 379.90,
+  "quantity": 50000000
+}
+
 
 ###
-GET http://127.0.0.1:8080/catalog/title/
+GET http://127.0.0.1:8080/catalog/title/re
 ###
 GET http://127.0.0.1:8080/catalog/genre/
 
