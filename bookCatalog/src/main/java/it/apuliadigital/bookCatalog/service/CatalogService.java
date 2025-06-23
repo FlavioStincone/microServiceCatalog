@@ -35,13 +35,13 @@ public class CatalogService implements ICatalog {
     @Override
     public List<Book> findByAuthor(String author)
     {
-        return repository.findByAuthor(author);
+        return repository.findByAuthorContainingIgnoreCase(author);
     }
 
     @Override
     public List<Book> findByGenre(String genre)
     {
-        return repository.findByGenre(genre);
+        return repository.findByGenreContainingIgnoreCase(genre);
     }
 
     @Override

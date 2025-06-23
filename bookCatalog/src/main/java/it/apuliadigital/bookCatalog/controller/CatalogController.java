@@ -32,7 +32,7 @@ public class CatalogController {
         return ResponseEntity.ok(book);
     }
 
-    // GET /Catalo
+    // GET /Catalogo
     @GetMapping("/catalog")
     public ResponseEntity<List<Book>> bookCatalog() {
 
@@ -45,13 +45,13 @@ public class CatalogController {
 
     }
 
-    @GetMapping("/catalog/{genre}")
+    @GetMapping("/catalog/genre/{genre}")
     public ResponseEntity<List<Book>> searchByGenre(@PathVariable String genre) {
         return ResponseEntity.ok(service.findByGenre(genre));
 
     }
 
-    @GetMapping("/catalog/{author}")
+    @GetMapping("/catalog/author/{author}")
     public ResponseEntity<List<Book>> searchByAuthor(@PathVariable String author) {
         return ResponseEntity.ok(service.findByAuthor(author));
 
