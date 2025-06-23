@@ -3,26 +3,33 @@ package it.apuliadigital.bookCatalog.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Book {
-    
+
     @Id
     @GeneratedValue
+    @NotBlank(message = "cannot be null or empty")
     private int isbn;
-
+    @NotBlank(message = "cannot be null or empty")
     private String title;
+    @NotBlank(message = "cannot be null or empty")
     private String genre;
+    @NotBlank(message = "cannot be null or empty")
     private int pubblicationYear;
+    @NotBlank(message = "cannot be null or empty")
     private String author;
+    @NotBlank(message = "cannot be null or empty")
     private double price;
+    @NotBlank(message = "cannot be null or empty")
     private int quantity = 0;
 
     public Book() {
     }
 
-    //getters/setters
-    //isbn
+    // getters/setters
+    // isbn
     public int getIsbn() {
         return isbn;
     }
@@ -31,7 +38,7 @@ public class Book {
         this.isbn = isbn;
     }
 
-    //title
+    // title
     public String getTitle() {
         return title;
     }
@@ -40,7 +47,7 @@ public class Book {
         this.title = title;
     }
 
-    //genre
+    // genre
     public String getGenre() {
         return genre;
     }
@@ -49,7 +56,7 @@ public class Book {
         this.genre = genre;
     }
 
-    //pubblicationYear
+    // pubblicationYear
     public int getPubblicationYear() {
         return pubblicationYear;
     }
@@ -58,7 +65,7 @@ public class Book {
         this.pubblicationYear = pubblicationYear;
     }
 
-    //author
+    // author
     public String getAuthor() {
         return author;
     }
@@ -67,7 +74,7 @@ public class Book {
         this.author = author;
     }
 
-    //price
+    // price
     public double getPrice() {
         return price;
     }
@@ -76,7 +83,7 @@ public class Book {
         this.price = price;
     }
 
-    //quantity
+    // quantity
     public int getQuantity() {
         return quantity;
     }
@@ -85,12 +92,12 @@ public class Book {
         this.quantity = quantity;
     }
 
-    //Methods
+    // Methods
     @Override
     public String toString() {
         return "Book [isbn=" + isbn + ", title=" + title + ", genre=" + genre + ", pubblicationYear=" + pubblicationYear
                 + ", author=" + author + ", price=" + price + ", quantity=" + quantity + ", disponibility="
-                 + "]";
+                + "]";
     }
 
     @Override
@@ -143,5 +150,5 @@ public class Book {
             return false;
         return true;
     }
- 
+
 }
