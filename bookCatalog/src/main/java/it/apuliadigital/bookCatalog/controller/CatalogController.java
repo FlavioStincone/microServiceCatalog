@@ -32,7 +32,7 @@ public class CatalogController {
         return ResponseEntity.ok(book);
     }
 
-    // GET /Catalog
+    // GET /Catalo
     @GetMapping("/catalog")
     public ResponseEntity<List<Book>> bookCatalog() {
 
