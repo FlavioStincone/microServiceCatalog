@@ -6,49 +6,49 @@ POST http://127.0.0.1:8080/catalog
 Content-Type: application/json
 
 {
-  "title": "Le 7 meraviglie del mondo",
+  "title": "40 Sfumature di rgb",
+  "genre": "STRANO",
+  "pubblicationYear": 2024,
+  "author": "Marco Santorini",
+  "price": 73.90,
+  "quantity": 1000
+}
+
+###
+
+POST http://127.0.0.1:8080/catalog
+Content-Type: application/json
+
+{
+  "title": "La Bella e il Ricco",
+  "genre": "BIOGRAFICO",
+  "pubblicationYear": 1450,
+  "author": "Enrico De Vittorio",
+  "price": 89.90,
+  "quantity": 3500
+}
+###
+
+POST http://127.0.0.1:8080/catalog
+Content-Type: application/json
+
+{
+  "title": "Il Minercraft",
   "genre": "HORROR",
   "pubblicationYear": 1990,
-  "author": "Saverio Bracciale",
-  "price": 19.90,
-  "quantity": 5
-}
-
-###
-
-POST http://127.0.0.1:8080/catalog
-Content-Type: application/json
-
-{
-  "title": "La signora in giallo",
-  "genre": "Giallo",
-  "pubblicationYear": 1,
-  "author": "Agata Crispy MC BACON",
-  "price": 39.90,
-  "quantity": 5000
-}
-###
-
-POST http://127.0.0.1:8080/catalog
-Content-Type: application/json
-
-{
-  "title": "Il ritorno del Re",
-  "genre": "Thriller",
-  "pubblicationYear": 1990,
-  "author": "Re Saverio",
-  "price": 379.90,
-  "quantity": 50000000
+  "author": "Aula dev 1",
+  "price": 79.90,
+  "quantity": 50000
 }
 
 
 ###
 GET http://127.0.0.1:8080/catalog/title/re
 ###
-GET http://127.0.0.1:8080/catalog/genre/
+GET http://127.0.0.1:8080/catalog/genre/strano
 
 ###
-GET http://127.0.0.1:8080/catalog/author/
+GET http://127.0.0.1:8080/catalog/author/re
 
 
 
