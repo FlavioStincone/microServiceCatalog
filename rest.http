@@ -6,12 +6,12 @@ POST http://127.0.0.1:8080/catalog
 Content-Type: application/json
 
 {
-  "title": "40 Sfumature di rgb",
-  "genre": "STRANO",
-  "pubblicationYear": 2024,
-  "author": "Marco Santorini",
-  "price": 73.90,
-  "quantity": 1000
+  "title": "Cittu Andrea",
+  "genre": "COMICO",
+  "pubblicationYear": 2025,
+  "author": "Aula dev 1",
+  "price": 10.00,
+  "quantity": 10000
 }
 
 ###
@@ -20,12 +20,12 @@ POST http://127.0.0.1:8080/catalog
 Content-Type: application/json
 
 {
-  "title": "La Bella e il Ricco",
-  "genre": "BIOGRAFICO",
-  "pubblicationYear": 1450,
-  "author": "Enrico De Vittorio",
-  "price": 89.90,
-  "quantity": 3500
+  "title": "PEFFORZA",
+  "genre": "COMMEDIA",
+  "pubblicationYear": 2024,
+  "author": "De Vittorio Enrico",
+  "price": 39.90,
+  "quantity": 1500
 }
 ###
 

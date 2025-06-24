@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import it.apuliadigital.bookCatalog.model.Book;
+import it.apuliadigital.bookCatalog.entity.Book;
 
 public interface CatalogRepository extends CrudRepository<Book, Integer> {
     

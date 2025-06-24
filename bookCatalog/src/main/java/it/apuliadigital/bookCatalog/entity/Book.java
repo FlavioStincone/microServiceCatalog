@@ -1,25 +1,20 @@
-package it.apuliadigital.bookCatalog.model;
+package it.apuliadigital.bookCatalog.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Book {
 
     @Id
     @GeneratedValue
-    
     private int isbn;
-    @NotBlank(message="non mettere null o vuoto")
     private String title;
     private String genre;
     private int pubblicationYear;
     private String author;
-    
     private double price;
-    
     private int quantity = 0;
 
     public Book() {

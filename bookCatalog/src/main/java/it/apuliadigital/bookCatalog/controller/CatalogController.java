@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import it.apuliadigital.bookCatalog.model.Book;
+import it.apuliadigital.bookCatalog.model.BookDTO;
+import it.apuliadigital.bookCatalog.model.BookDTOBase;
 import it.apuliadigital.bookCatalog.service.CatalogService;
 
 
@@ -31,15 +32,15 @@ public class CatalogController {
     })
 
     @PostMapping("/catalog")
-    public ResponseEntity<Book> catalog(@Validated @RequestBody Book book) {
+    public ResponseEntity<BookDTO> catalog(@Validated @RequestBody BookDTOBase book) {
 
         if (book == null) {
             return ResponseEntity.noContent().build();
         }
 
-        service.addBook(book);
+        BookDTO book2 = service.addBook(book);
 
-        return ResponseEntity.ok(book);
+        return ResponseEntity.ok(book2);
     }
 
     @Operation(summary = "Visualizza catalogo libri", description = "Visualizza l'intero catalogo dei libri")
@@ -49,9 +50,15 @@ public class CatalogController {
 
     // GET /Catalogo
     @GetMapping("/catalog")
-    public ResponseEntity<List<Book>> bookCatalog() {
+    public ResponseEntity<List<BookDTO>> bookCatalog() {
 
-        return ResponseEntity.ok(service.bookCatalog());
+        List<BookDTO> bookList = service.bookCatalog();
+
+        if (bookList.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.ok(bookList);
     }
 
     @Operation(summary = "Filtro ricerca per titolo", description = "Ricerca di un libro filtrando per il titolo")
@@ -60,7 +67,7 @@ public class CatalogController {
     })
 
     @GetMapping("/catalog/title/{title}")
-    public ResponseEntity<List<Book>> searchByTitle(@PathVariable String title) {
+    public ResponseEntity<List<BookDTO>> searchByTitle(@PathVariable String title) {
         return ResponseEntity.ok(service.findByTitle(title));
 
     }
@@ -71,7 +78,7 @@ public class CatalogController {
     })
 
     @GetMapping("/catalog/genre/{genre}")
-    public ResponseEntity<List<Book>> searchByGenre(@PathVariable String genre) {
+    public ResponseEntity<List<BookDTO>> searchByGenre(@PathVariable String genre) {
         return ResponseEntity.ok(service.findByGenre(genre));
 
     }
@@ -82,7 +89,7 @@ public class CatalogController {
     })
 
     @GetMapping("/catalog/author/{author}")
-    public ResponseEntity<List<Book>> searchByAuthor(@PathVariable String author) {
+    public ResponseEntity<List<BookDTO>> searchByAuthor(@PathVariable String author) {
         return ResponseEntity.ok(service.findByAuthor(author));
 
     }
